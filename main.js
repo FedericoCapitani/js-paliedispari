@@ -4,16 +4,15 @@ const parola_utente = prompt('Inserisci una parola')
 console.log(parola_utente.length)
 
 function palindrome_check(parola_utente) {
-    let parola_length = parola_utente.length;
-    let lunghezza_da_comparare = parola_length.length/2;
-    // ciclo for che confronta le due metà della parola
-    for(let i = 0; i < lunghezza_da_comparare; i++){
-        console.log('sono dentro')
-        if(parola_length[i] == parola_length[parola_length-i]){
-            return true;
+    // salvo la lunghezza della parola in una nuova variabile
+    const p_length = parola_utente.length
+    // controllo le due metà della parola
+    for(let i = 0; i < p_length/2; i++){
+        if(parola_utente[i] !== parola_utente[p_length -1 -i]){
+            return false;
         }
     }
-    return false;
+    return true;
 }
 
 let controllo = palindrome_check(parola_utente);
